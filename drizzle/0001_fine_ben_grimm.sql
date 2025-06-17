@@ -1,1 +1,1 @@
-ALTER TABLE "user" RENAME COLUMN "emailVerified" TO "email_verified";
+EXEC sp_rename 'user.emailVerified', 'email_verified', 'COLUMN';
