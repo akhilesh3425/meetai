@@ -1,0 +1,1 @@
+EXEC sp_rename 'user.emailVerified', 'email_verified', 'COLUMN';
