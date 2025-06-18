@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { OctagonAlertIcon } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Input } from "@/components/ui/input";
 
 import { authClient } from "@/lib/auth-client";
@@ -70,7 +70,7 @@ export const SignUpView = () => {
           router.push("/");
           setPending(false);
         },
-        onError: ({ error }) => {
+        onError: ({ error }: { error: { message: string } }) => {
           setError(error.message);
         },
       }
@@ -184,11 +184,29 @@ export const SignUpView = () => {
                   </span>
                 </div>
                 <div className=" grid grid-cols-2 gap-4">
-                  <Button variant="outline" className="w-full">
-                    Google
+                  <Button
+                    onClick={() => {
+                      authClient.signIn.social({
+                        provider: "google",
+                      });
+                    }}
+                    disabled={pending}
+                    variant="outline"
+                    className="w-full"
+                  >
+                    <FaGoogle className="mr-2" />
                   </Button>
-                  <Button variant="outline" className="w-full">
-                    GitHub
+                  <Button
+                    onClick={() => {
+                      authClient.signIn.social({
+                        provider: "github",
+                      });
+                    }}
+                    disabled={pending}
+                    variant="outline"
+                    className="w-full"
+                  >
+                    <FaGithub className="mr-2" />
                   </Button>
                 </div>
                 <div className="text-center text-sm">
