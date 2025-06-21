@@ -51,9 +51,7 @@ export const DashboardSidebar = () => {
         </Link>
       </SidebarHeader>
 
-      <div className="flex-1 overflow-y-auto">
-        <Separator className="opacity-10  text-2xl" />
-      </div>
+      <Separator className="opacity-10  text-2xl" />
 
       <SidebarContent>
         <SidebarGroup>
@@ -82,7 +80,7 @@ export const DashboardSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
-        <div className="flex-1 overflow-y-auto">
+        <div className=" flex flex-1 flex-col overflow-y-auto">
           <Separator className="opacity-10  text-2xl" />
         </div>
 
