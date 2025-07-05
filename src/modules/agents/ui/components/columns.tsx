@@ -35,12 +35,13 @@ export const columns: ColumnDef<AgentGetOne>[] = [
   {
     accessorKey: "MeetingCount",
     header: "Meeting",
-    cell: () => (
+    cell: ({ row }) => (
       <Badge
         variant="outline"
         className="flex items-center gap-x-2 [&>svg]:size-4"
       >
-        <VideoIcon className="text-pink-500" />5 meetings
+        <VideoIcon className="text-pink-500" /> {row.original.MeetingCount}
+        {row.original.MeetingCount === 1 ? "meeting" : "meetings"}
       </Badge>
     ),
   },
