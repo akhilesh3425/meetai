@@ -7,6 +7,7 @@ import {
   timestamp,
   varchar,
   boolean,
+  pgEnum,
 } from "drizzle-orm/pg-core";
 import { User } from "lucide-react";
 
@@ -81,6 +82,37 @@ export const agents = pgTable("agents", {
     .references(() => usersTable.id, { onDelete: "cascade" }),
 
   instructions: text("instructions").notNull(),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at").notNull().defaultNow(),
+});
+
+export const meetingStatus = pgEnum("meeting_status", [
+  "upcoming",
+  "active",
+  "completed",
+  "processing",
+  "cancelled",
+]);
+
+export const meetings = pgTable("meetings", {
+  id: text("id")
+    .primaryKey()
+    .$defaultFn(() => nanoid()),
+  name: text("name").notNull(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => usersTable.id, { onDelete: "cascade" }),
+
+  agentId: text("agent_id")
+    .notNull()
+    .references(() => agents.id, { onDelete: "cascade" }),
+  status: meetingStatus("status").notNull().default("upcoming"),
+
+  staredAt: timestamp("started_at"),
+  endedAt: timestamp("ended_at"),
+  transcriptUrl: text("recording_url"),
+  recordingUrl: text("recording_url"),
+  summary: text("summary"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
 });

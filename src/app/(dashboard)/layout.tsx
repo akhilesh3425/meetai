@@ -9,12 +9,14 @@ interface Props {
 const Layout = ({ children }: Props) => {
   return (
     <SidebarProvider>
-      <DashboardSidebar />
+      <div className="flex min-h-screen w-full">
+        <DashboardSidebar />
 
-      <main className="flex min-h-screen flex-col bg-background">
-        <DashboardNavbar></DashboardNavbar>
-        {children}
-      </main>
+        <main className="flex-1 flex flex-col bg-background">
+          <DashboardNavbar />
+          <div className="flex-1 p-4">{children}</div>
+        </main>
+      </div>
     </SidebarProvider>
   );
 };
