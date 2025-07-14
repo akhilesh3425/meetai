@@ -11,7 +11,7 @@ export const MeetingsListHeader = () => {
   return (
     <>
       <NewMeetingDialog open={isDialogOpen} onOpenChange={setIsDialogOpen} />
-      <div className="py-4 px-4 md:px-8 felx flex-col gap-y-5">
+      <div className="py-4 px-4 md:px-8 flex flex-col gap-y-5">
         <div className="flex  items-center justify-between">
           <h5 className=" font-medium semibold text-2xl"> My Meetings</h5>
           <Button onClick={() => setIsDialogOpen(true)}>
