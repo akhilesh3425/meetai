@@ -3,7 +3,7 @@ import { z } from "zod";
 import { useTRPC } from "@/trpc/client";
 import { MeetingGetOne } from "../../types";
 import { meetingsInsertSchema } from "../../schemas";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 
 import { useForm } from "react-hook-form";
 
@@ -13,7 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { NewAgentDialog } from "@/modules/agents/ui/components/new-agent-dialog";
 import { toast } from "sonner";
-import { useQuery } from "@tanstack/react-query";
+
 import { GeneratedAvatar } from "@/components/generated-avatar";
 import {
   Form,
@@ -57,7 +57,6 @@ export const MeetingForm = ({
         await queryClient.invalidateQueries(
           trpc.meetings.getMany.queryOptions({})
         );
-
         onSuccess?.(data.id);
       },
       onError: (error) => {
@@ -90,7 +89,7 @@ export const MeetingForm = ({
     resolver: zodResolver(meetingsInsertSchema),
     defaultValues: {
       name: initialValues?.name ?? "",
-      agentID: initialValues?.agentID ?? "",
+      agentId: initialValues?.agentId ?? "",
     },
   });
 
@@ -127,7 +126,7 @@ export const MeetingForm = ({
             )}
           />
           <FormField
-            name="agentID"
+            name="name"
             control={form.control}
             render={({ field }) => (
               <FormItem>
