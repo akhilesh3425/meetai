@@ -50,42 +50,39 @@ export const CommandSelect = ({
         className={cn(
           "h-9 justify-between font-normal px-2",
           !selectedOption && "text-muted-foreground",
-
           className
         )}
       >
         <div>{selectedOption?.children ?? placeholder}</div>
         <ChevronsUpDownIcon />
-
-        <Button>
-          <CommandResponsiveDialog
-            shouldFilter={!onSearch}
-            open={open}
-            onOpenChange={handleOpenChange}
-          >
-            <CommandInput placeholder="Search..." onValueChange={onSearch} />
-            <CommandList>
-              <CommandEmpty>
-                <span className="text-muted-foreground text-sm">
-                  No options Found
-                </span>
-              </CommandEmpty>
-
-              {options.map((options) => (
-                <CommandItem
-                  key={options.id}
-                  onSelect={() => {
-                    onSelect(options.value);
-                    setOpen(false);
-                  }}
-                >
-                  {options.children}
-                </CommandItem>
-              ))}
-            </CommandList>
-          </CommandResponsiveDialog>
-        </Button>
       </Button>
+
+      <CommandResponsiveDialog
+        shouldFilter={!onSearch}
+        open={open}
+        onOpenChange={handleOpenChange}
+      >
+        <CommandInput placeholder="Search..." onValueChange={onSearch} />
+        <CommandList>
+          <CommandEmpty>
+            <span className="text-muted-foreground text-sm">
+              No options Found
+            </span>
+          </CommandEmpty>
+
+          {options.map((option) => (
+            <CommandItem
+              key={option.id}
+              onSelect={() => {
+                onSelect(option.value);
+                setOpen(false);
+              }}
+            >
+              {option.children}
+            </CommandItem>
+          ))}
+        </CommandList>
+      </CommandResponsiveDialog>
     </>
   );
 };
