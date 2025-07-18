@@ -3,6 +3,7 @@ import {
   CircleCheckIcon,
   LoaderIcon,
   VideoIcon,
+  ClockIcon,
 } from "lucide-react";
 import { CommandSelect } from "@/components/command-select";
 import { useMeetingsFilters } from "../../hooks/use-meetings-filter";
@@ -14,7 +15,7 @@ const options = [
     value: MeetingStatus.Upcoming,
     Children: (
       <div className="flex items-center gap-x-2 capitalize">
-        <CircleXIcon />
+        <ClockIcon />
         {MeetingStatus.Upcoming}
       </div>
     ),
@@ -23,7 +24,7 @@ const options = [
   {
     id: MeetingStatus.Completed,
     value: MeetingStatus.Completed,
-    Children: (
+    children: (
       <div className="flex items-center gap-x-2 capitalize">
         <CircleCheckIcon />
         {MeetingStatus.Completed}
@@ -34,7 +35,7 @@ const options = [
   {
     id: MeetingStatus.Active,
     value: MeetingStatus.Active,
-    Children: (
+    children: (
       <div className="flex items-center gap-x-2 capitalize">
         <VideoIcon />
         {MeetingStatus.Active}
@@ -45,7 +46,7 @@ const options = [
   {
     id: MeetingStatus.Processing,
     value: MeetingStatus.Processing,
-    Children: (
+    children: (
       <div className="flex items-center gap-x-2 capitalize">
         <LoaderIcon />
         {MeetingStatus.Processing}
@@ -56,7 +57,7 @@ const options = [
   {
     id: MeetingStatus.Cancelled,
     value: MeetingStatus.Cancelled,
-    Children: (
+    children: (
       <div className="flex items-center gap-x-2 capitalize">
         <CircleXIcon />
         {MeetingStatus.Cancelled}

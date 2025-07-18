@@ -113,7 +113,7 @@ export const MeetingForm = ({
       <Form {...form}>
         <form className="space-y-4" onSubmit={form.handleSubmit(onSubmit)}>
           <FormField
-            name="name"
+            name="agentId"
             control={form.control}
             render={({ field }) => (
               <FormItem>

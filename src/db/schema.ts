@@ -1,15 +1,6 @@
 import { nanoid } from "nanoid";
 
-import {
-  integer,
-  text,
-  pgTable,
-  timestamp,
-  varchar,
-  boolean,
-  pgEnum,
-} from "drizzle-orm/pg-core";
-import { User } from "lucide-react";
+import { text, pgTable, timestamp, boolean, pgEnum } from "drizzle-orm/pg-core";
 
 export const usersTable = pgTable("user", {
   id: text("id").primaryKey(),
@@ -110,8 +101,8 @@ export const meetings = pgTable("meetings", {
 
   startedAt: timestamp("started_at"),
   endedAt: timestamp("ended_at"),
+  recordingUrl: text("transcript_url"),
   transcriptUrl: text("recording_url"),
-  recordingUrl: text("recording_url"),
   summary: text("summary"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),
