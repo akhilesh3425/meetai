@@ -7,7 +7,7 @@ import { CommandSelect } from "@/components/command-select";
 import { GeneratedAvatar } from "@/components/generated-avatar";
 
 export const AgentIdFilters = () => {
-  const [filter, setFilters] = useMeetingsFilters();
+  const [filters, setFilters] = useMeetingsFilters();
 
   const trpc = useTRPC();
 
@@ -28,11 +28,11 @@ export const AgentIdFilters = () => {
         id: agent.id,
         value: agent.id,
         children: (
-          <div className="flex items-center gap-x-2 capitalize">
+          <div className="flex items-center gap-x-2">
             <GeneratedAvatar
               seed={agent.name}
               variant="botttsNeutral"
-              className="size-5"
+              className="size-4"
             />
             {agent.name}
           </div>
@@ -40,7 +40,8 @@ export const AgentIdFilters = () => {
       }))}
       onSelect={(value) => setFilters({ agentId: value })}
       onSearch={setAgentSearch}
-      value={filter.agentId ?? ""}
+      isSearchable={false}
+      value={filters.agentId ?? ""}
     />
   );
 };

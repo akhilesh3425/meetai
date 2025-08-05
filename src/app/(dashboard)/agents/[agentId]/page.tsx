@@ -1,6 +1,6 @@
 import { getQueryClient, trpc } from "@/trpc/server";
 import { dehydrate, HydrationBoundary } from "@tanstack/react-query";
-import { ErrorBoundary } from "next/dist/client/components/error-boundary";
+import { ErrorBoundary } from "react-error-boundary";
 import { Suspense } from "react";
 import {
   AgentIdView,

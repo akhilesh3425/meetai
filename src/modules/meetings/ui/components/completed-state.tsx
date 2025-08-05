@@ -1,6 +1,6 @@
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import Markdown from "react-markdown";
-import { ClockFading, ClockFadingIcon, Link, SparklesIcon } from "lucide-react";
+import { ClockFadingIcon, Link, SparklesIcon } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { MeetingGetOne } from "../../types";
 import { format } from "date-fns";

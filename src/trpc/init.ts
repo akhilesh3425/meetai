@@ -10,7 +10,7 @@ import { initTRPC, TRPCError } from "@trpc/server";
 import { count, eq } from "drizzle-orm";
 
 import { headers } from "next/headers";
-import { userAgent } from "next/server";
+
 import { cache } from "react";
 export const createTRPCContext = cache(async () => {
   /**

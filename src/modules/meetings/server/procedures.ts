@@ -68,6 +68,7 @@ export const meetingsRouter = createTRPCRouter({
         .catch(() => {
           return [];
         });
+
       const speakerIds = [
         ...new Set(transcript.map((item) => item.speaker_id)),
       ];
@@ -91,7 +92,7 @@ export const meetingsRouter = createTRPCRouter({
         .where(inArray(agents.id, speakerIds))
         .then((agents) =>
           agents.map((agent) => ({
-            ...agents,
+            ...agent,
             image: generateAvatarUri({
               seed: agent.name,
               variant: "botttsNeutral",

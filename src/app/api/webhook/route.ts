@@ -18,8 +18,6 @@ import { generateAvatarUri } from "@/lib/avatar";
 
 import { ChatCompletionMessageParam } from "openai/resources/index.mjs";
 import { streamChat } from "@/lib/stream-chat";
-import { error } from "console";
-import { avataaarsNeutral } from "@dicebear/collection";
 
 const openaiClient = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! });
 
