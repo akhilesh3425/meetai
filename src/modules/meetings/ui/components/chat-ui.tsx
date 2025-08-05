@@ -14,7 +14,7 @@ import {
 } from "stream-chat-react";
 import { useTRPC } from "@/trpc/client";
 import { LoadingState } from "@/components/loading-state";
-import { string } from "zod";
+
 import "stream-chat-react/dist/css/v2/index.css";
 
 interface ChatUIProps {

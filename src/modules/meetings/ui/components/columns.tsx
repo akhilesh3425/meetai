@@ -35,7 +35,7 @@ const statusColorMap = {
   cancelled: "bg-red-500/20 text-red-800 border-red-500",
 };
 
-type Meeting = MeetingGetMany[number];
+
 export const columns: ColumnDef<MeetingGetMany[number]>[] = [
   {
     accessorKey: "name",

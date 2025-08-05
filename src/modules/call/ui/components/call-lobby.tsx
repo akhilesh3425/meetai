@@ -2,6 +2,7 @@ import Link from "next/link";
 
 import {
   DefaultVideoPlaceholder,
+  StreamVideoParticipant,
   ToggleAudioPreviewButton,
   ToggleVideoPreviewButton,
   useCallStateHooks,
@@ -24,18 +25,21 @@ const DisabledVideoPreview = () => {
 
   return (
     <DefaultVideoPlaceholder
-      participant={{
-        name: data?.user.name ?? "",
-        image:
-          data?.user.image ??
-          generateAvatarUri({
-            seed: data?.user.name ?? "",
-            variant: "initials",
-          }),
-      }}
+      participant={
+        {
+          name: data?.user.name ?? "",
+          image:
+            data?.user.image ??
+            generateAvatarUri({
+              seed: data?.user.name ?? "",
+              variant: "initials",
+            }),
+        } as StreamVideoParticipant
+      }
     />
   );
 };
+
 const AllowedBrowserPermission = () => {
   return (
     <p className="text-sm">

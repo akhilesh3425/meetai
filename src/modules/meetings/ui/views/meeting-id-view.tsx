@@ -22,7 +22,7 @@ interface Props {
   meetingId: string;
 }
 
-export const MeetingIdView = async ({ meetingId }: Props) => {
+export const MeetingIdView = ({ meetingId }: Props) => {
   const trpc = useTRPC();
   const router = useRouter();
   const queryClient = useQueryClient();
@@ -83,13 +83,7 @@ export const MeetingIdView = async ({ meetingId }: Props) => {
         {isCompleted && <CompletedState data={data} />}
         {isProcessing && <ProcessingState />}
         {isActive && <ActiveState meetingId={meetingId} />}
-        {isUpcoming && (
-          <UpcomingState
-            meetingId={meetingId}
-            onCancelMeeting={() => {}}
-            isCancelling={false}
-          />
-        )}
+        {isUpcoming && <UpcomingState meetingId={meetingId} />}
       </div>
     </>
   );

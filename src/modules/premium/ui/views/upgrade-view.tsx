@@ -1,5 +1,4 @@
-"use client ";
-
+"use client";
 import { useSuspenseQuery } from "@tanstack/react-query";
 import { useTRPC } from "@/trpc/client";
 import { authClient } from "@/lib/auth-client";
@@ -9,7 +8,6 @@ import { PricingCard } from "../components/pricing-card";
 
 export const UpgradeView = () => {
   const trpc = useTRPC();
-
   const { data: products } = useSuspenseQuery(
     trpc.premium.getProducts.queryOptions()
   );

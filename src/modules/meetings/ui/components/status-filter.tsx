@@ -13,7 +13,7 @@ const options = [
   {
     id: MeetingStatus.Upcoming,
     value: MeetingStatus.Upcoming,
-    Children: (
+    children: (
       <div className="flex items-center gap-x-2 capitalize">
         <ClockIcon />
         {MeetingStatus.Upcoming}
@@ -66,7 +66,7 @@ const options = [
   },
 ];
 
-export const MeetingsStatusFilter = () => {
+export const StatusFilter = () => {
   const [filter, setFilters] = useMeetingsFilters();
   return (
     <CommandSelect
@@ -75,6 +75,8 @@ export const MeetingsStatusFilter = () => {
       options={options}
       onSelect={(value) => setFilters({ status: value as MeetingStatus })}
       value={filter.status ?? ""}
+      onSearch={() => {}}
+      isSearchable={false}
     />
   );
 };
