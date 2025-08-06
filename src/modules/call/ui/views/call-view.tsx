@@ -20,7 +20,7 @@ export const CallView = ({ meetingId }: Props) => {
     return (
       <div className="flex h-screen items-center justify-center">
         <ErrorState
-          title="Meeting has ended "
+          title="Meeting has ended"
           description="You can no longer join this meeting"
         />
       </div>

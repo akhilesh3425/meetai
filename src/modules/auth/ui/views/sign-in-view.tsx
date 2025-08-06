@@ -27,7 +27,6 @@ import {
 } from "@/components/ui/form";
 import { useForm } from "react-hook-form";
 
-
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(1, "Password is required"),
@@ -74,7 +73,9 @@ export const SignInView = () => {
             <form onSubmit={form.handleSubmit(onSubmit)} className="p-6 md:p-8">
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col items-center text-center">
-                  <h1 className="text-2xl font-semibold">Sign In to Meet.AI</h1>
+                  <h1 className="text-2xl font-semibold">
+                    Sign In to Gensis.AI
+                  </h1>
 
                   <p className="text-muted-foreground text-sm">
                     Login to your Account.
@@ -173,9 +174,9 @@ export const SignInView = () => {
             </form>
           </Form>
 
-          <div className="bg-radial from-sidebar-accent to-sidebar  to-green-900 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
+          <div className="bg-radial from-sidebar-accent to-sidebar to-green-900 relative hidden md:flex flex-col gap-y-4 items-center justify-center">
             <img src="/logo.svg" alt="Image" className="h-[92px] w- [92px]" />
-            <p className="text-2xl font-semibold text-white">Meet.AI</p>
+            <p className="text-2xl font-semibold text-white">Gensis.AI</p>
           </div>
         </CardContent>
       </Card>
